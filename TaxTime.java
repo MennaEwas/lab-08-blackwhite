@@ -22,50 +22,50 @@ public class TaxTime {
         BufferedReader in =
             new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println ("Welcome to the new Berlin tax calculator.");
+        System.out.println ("Welcome to the new Berlin tax calculator."); 
         System.out.print   ("How much did you earn last year? ");
-        try {
+        try {  
             income = Double.parseDouble(in.readLine());
-        } catch (NumberFormatException e1) {
+        } catch (NumberFormatException e1) {  //A0
             e1.printStackTrace();
-        } catch (IOException e1) {
+        } catch (IOException e1) { // A2 
             e1.printStackTrace();
         }
 
 //     check income
 
-        if (income < 0) {
-            System.out.println ("Even in Berlin, no one has a negative income!");
+        if (income < 0) { //A1
+            System.out.println ("Even in Berlin, no one has a negative income!"); 
             System.out.println ("Start over.");
             System.exit (-1);
         }
 
         System.out.print("Enter the number of dependents you have, including yourself: ");
-        try {
+        try {                                                           //c
             String s = in.readLine();
             nFamilyMembers = Integer.valueOf(s).intValue();
-        } catch (IOException e) {
+        } catch (IOException e) {           //D
             e.printStackTrace();
         }
 
 //     check number of family members
 
-       if (nFamilyMembers <= 0) {
+       if (nFamilyMembers <= 0) {   //E
           System.out.println("Did you forget to count yourself?");
           System.out.println ("Start over.");
-          System.exit (-1);
+          System.exit (-1); //E1
           }
 
 //    compute tax total
 
-      if (income < 10000)
-         taxTotal = 0.12 * income;
-      else if (income < 50000)
-         taxTotal = 300.00 + 0.24 * (income - 10000);
-      else
-         taxTotal = 1500.00 + 0.36 * (income - 50000);
+      if (income < 10000) //E2
+         taxTotal = 0.12 * income; //E21
+      else if (income < 50000) //E3
+         taxTotal = 300.00 + 0.24 * (income - 10000); //E31
+      else //E4
+         taxTotal = 1500.00 + 0.36 * (income - 50000); //E4
 
-      for (int i = 0; i <= nFamilyMembers; i++){
+      for (int i = 0; i <= nFamilyMembers; i++){  //CON 
            taxTotal = taxTotal - 100;
       }
 
